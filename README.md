@@ -1,76 +1,47 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+## To-do-list ##
 
-> One paragraph statement about the project.
+> The project's goal is to learn how to use webpack. "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. You will build a simple website that allows for doing that, and you will do it using ES6 and Webpack!
 
 ![screenshot](./app_screenshot.png)
 
 Additional description about the project and its features.
 
+
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
+- HTML, CSS, JS
+- Linterns, Git
+- Flexbox, Webpack
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
+You will need an up to date browser to render your To Do List. Also npm to run terminal commands.
 
-### Setup
+### Setup and Install
+To get a local copy up and running follow these simple example steps. You can either download the zip file, or clone the repository from [here](https://github.com/herokudev/to-do-list/tree/List-structure) 
 
-### Install
 
 ### Usage
-
-### Run tests
-
-### Deployment
+To test the app locally, use Live Server (Extension for VS Code)
 
 
+## Authors (Github: Herokudev)
+Herbert Orellana
 
-## Authors
+- GitHub: [@herokudev](https://github.com/herokudev)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/armando-orellana-a0b50b34)
 
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
-
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
-
-## Show your support
-
+Show your support
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
-## 📝 License
-
-This project is [MIT](./MIT.md) licensed.
+## 📝 License 
+This project is MIT licensed.
