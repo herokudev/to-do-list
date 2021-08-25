@@ -18,10 +18,15 @@ Additional description about the project and its features.
 
 ## Getting Started
 
+### Prerequisites
+You will need an up to date browser to render your To Do List. Also npm to run terminal commands.
+
+### Setup and Install
 To get a local copy up and running follow these simple example steps. You can either download the zip file, or clone the repository from [here](https://github.com/herokudev/to-do-list/tree/List-structure) 
 
 
-#### To test the app locally, use Live Server (Extension for VS Code)
+### Usage
+To test the app locally, use Live Server (Extension for VS Code)
 
 
 ## Authors (Github: Herokudev)

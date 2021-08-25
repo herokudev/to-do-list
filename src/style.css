@@ -23,30 +23,64 @@ main {
   width: 90%;
 }
 
-.list-item {
-  width: 90%;
-  margin-left: 68px;
-  text-align: left;
-  border: 1px solid grey;
-  box-shadow: 1px 1px 1px;
-  color: gray;
-  padding: 15px;
+.add-list {
+  height: 100%;
+  width: 100%;
+  border: none;
 }
 
-.list-footer {
-  background-color: #d0d0d7;
-  width: 90%;
-  margin-left: 68px;
-  text-align: center;
-  border: 1px solid grey;
-  box-shadow: 1px 1px 1px;
-  color: #5d5858;
+.add-btn {
+  background: rgb(150, 255, 255);
+  padding: 1px 4px;
+}
+
+.container {
+  width: 100%;
+  list-style: none;
+}
+
+.clear-btn {
   padding: 15px;
+  color: rgb(94, 88, 88);
+}
+
+.list-template {
+  width: 80%;
+  display: flex;  
+}
+
+.todo-input {
+  display: flex;
 }
 
 .item-style {
   border: 1px solid grey;
   padding: 15px;
+}
+
+.check-item {
+  margin-left: 15px;
+}
+
+.task-item {
+  width: 99%;
+  padding: 15px 0 15px 0;
+  border-bottom: gray 3px solid;
+  display: flex;
+  justify-content:space-between;
+}
+
+.desc-cont {
+  display: flex;
+  align-items: baseline;
+}
+
+.task-desc {
+  margin-left: 15px;
+}
+
+.delete {
+  display: none;
 }
 
 .title {

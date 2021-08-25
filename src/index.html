@@ -13,6 +13,22 @@
                 <p class="title__text">Today's To Do</p>
                 <i class="fa fa-solid fa-sync"></i>        
             </div>
+            <div class="item-style todo-input">
+                <input type="text" class="add-list" placeholder="Add to your list..."> <span><button class="add-btn" type="submit">ADD</button></span>
+            </div>
+            <ul class="container" id="container">
+                <template class="list-template">
+                    <li class="item-style title" draggable="true">
+                        <div class="desc-cont">
+                            <input type="checkbox" class="check-item">
+                            <p class="task-desc" contentEditable="true">clean my shoes</p>
+                        </div>
+                        <i class="fa fa-ellipsis-v move-handle"></i>
+                        <i class="fa fa-trash delete"></i>
+                    </li>
+                </template>
+            </ul>
+            <button class="clear-btn" type="button"> Clear all completed</button>                 
         </div>
     </main>
 </body>
