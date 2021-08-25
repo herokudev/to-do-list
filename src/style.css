@@ -34,13 +34,13 @@ main {
 }
 
 .list-footer {
-  background-color: #D0D0D7;
+  background-color: #d0d0d7;
   width: 90%;
   margin-left: 68px;
   text-align: center;
   border: 1px solid grey;
   box-shadow: 1px 1px 1px;
-  color: #5E5858;
+  color: #5d5858;
   padding: 15px;
 }
 
