@@ -3,9 +3,9 @@ import './style.css';
 const tasksList = document.querySelector('#container');
 
 const addTaskToList = (myTask) => {
-    const row = document.createElement('li');
-    row.classList.add('task-item');
-    row.innerHTML = `
+  const row = document.createElement('li');
+  row.classList.add('task-item');
+  row.innerHTML = `
     <div class="desc-cont">
     <input type="checkbox" class="check-item">
     <p class="task-desc" contentEditable="true">${myTask.description}</p>
@@ -13,8 +13,8 @@ const addTaskToList = (myTask) => {
     <i class="fa fa-ellipsis-v move-handle"></i>
     <i class="fa fa-trash delete"></i> 
     `;
-    tasksList.appendChild(row);
-  }
+  tasksList.appendChild(row);
+};
 
 const dispalyList = () => {
   const myToDoList = [];
@@ -25,9 +25,9 @@ const dispalyList = () => {
   myToDoList.push(taskItem2);
   myToDoList.push(taskItem3);
 
-  myToDoList.forEach(item => {
+  myToDoList.forEach((item) => {
     addTaskToList(item);
   });
-}
+};
 
 dispalyList();

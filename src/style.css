@@ -46,7 +46,7 @@ main {
 
 .list-template {
   width: 80%;
-  display: flex;  
+  display: flex;
 }
 
 .todo-input {
@@ -67,7 +67,7 @@ main {
   padding: 15px 0 15px 0;
   border-bottom: gray 3px solid;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 .desc-cont {
