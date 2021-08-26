@@ -21,10 +21,7 @@ class StatusCheck {
         newData = [];
         localStorage.setItem('myToDoList', JSON.stringify(newData));
       } else {
-        console.log('Checking new data....');
         newData.forEach((item) => {
-          console.log('index param -->' + typeof indexParam);
-          console.log('item.index -->' + typeof item.index);
           if (item.index === indexParam) {
             item.completed = value;
           }
