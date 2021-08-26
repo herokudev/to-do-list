@@ -15,7 +15,7 @@ class StatusCheck {
     }
 
     update = (index, value) => {
-      const indexParam = parseInt(index);
+      const indexParam = parseInt(index, 10);
       let newData = JSON.parse(localStorage.getItem('myToDoList'));
       if (newData === null) {
         newData = [];
