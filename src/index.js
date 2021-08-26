@@ -5,7 +5,6 @@ import appdata from './appData';
 const tasksList = document.querySelector('#container');
 const addBtn = document.querySelector('.add-btn');
 const addItem = document.querySelector('.add-list');
-const markedCheckbox = document.querySelectorAll('.check-item');
 let myToDoList = [];
 
 const addTaskToList = (myTask) => {
@@ -23,7 +22,7 @@ const addTaskToList = (myTask) => {
   tasksList.appendChild(row);
 };
 
-const dispalyList = () => {  
+const dispalyList = () => {
   myToDoList.forEach((item) => {
     addTaskToList(item);
   });

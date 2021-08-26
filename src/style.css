@@ -27,6 +27,8 @@ main {
   height: 100%;
   width: 100%;
   border: none;
+  padding: 5px;
+  font-size: medium;  
 }
 
 .add-btn {
@@ -59,7 +61,7 @@ main {
 }
 
 .check-item {
-  margin-left: 15px;  
+  margin-left: 15px;
 }
 
 .task-item {
@@ -78,11 +80,6 @@ main {
 
 .idItem {
   color: #fff;
-}
-
-.add-list {
-  padding: 5px;
-  font-size: medium;
 }
 
 .task-desc {
