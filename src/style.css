@@ -59,7 +59,7 @@ main {
 }
 
 .check-item {
-  margin-left: 15px;
+  margin-left: 15px;  
 }
 
 .task-item {
@@ -68,11 +68,21 @@ main {
   border-bottom: gray 3px solid;
   display: flex;
   justify-content: space-between;
+  cursor: move;
 }
 
 .desc-cont {
   display: flex;
   align-items: baseline;
+}
+
+.idItem {
+  color: #fff;
+}
+
+.add-list {
+  padding: 5px;
+  font-size: medium;
 }
 
 .task-desc {

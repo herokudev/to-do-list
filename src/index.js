@@ -1,6 +1,12 @@
 import './style.css';
+import statusCheck from './status';
+import appdata from './appData';
 
 const tasksList = document.querySelector('#container');
+const addBtn = document.querySelector('.add-btn');
+const addItem = document.querySelector('.add-list');
+const markedCheckbox = document.querySelectorAll('.check-item');
+let myToDoList = [];
 
 const addTaskToList = (myTask) => {
   const row = document.createElement('li');
@@ -9,6 +15,7 @@ const addTaskToList = (myTask) => {
     <div class="desc-cont">
     <input type="checkbox" class="check-item">
     <p class="task-desc" contentEditable="true">${myTask.description}</p>
+    <p class="idItem">${myTask.index}</p>
     </div>
     <i class="fa fa-ellipsis-v move-handle"></i>
     <i class="fa fa-trash delete"></i> 
@@ -16,18 +23,29 @@ const addTaskToList = (myTask) => {
   tasksList.appendChild(row);
 };
 
-const dispalyList = () => {
-  const myToDoList = [];
-  const taskItem1 = { index: 1, completed: false, description: 'Project milestone1' };
-  const taskItem2 = { index: 2, completed: false, description: 'Project milestone2' };
-  const taskItem3 = { index: 3, completed: false, description: 'Project milestone3' };
-  myToDoList.push(taskItem1);
-  myToDoList.push(taskItem2);
-  myToDoList.push(taskItem3);
-
+const dispalyList = () => {  
   myToDoList.forEach((item) => {
     addTaskToList(item);
   });
 };
 
-dispalyList();
+document.addEventListener('DOMContentLoaded', () => {
+  myToDoList = appdata.get();
+  dispalyList();
+  statusCheck.setLocal();
+});
+
+addBtn.addEventListener('click', () => {
+  const taskItem = { index: 0, completed: false, description: '' };
+  taskItem.index = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+  taskItem.description = addItem.value;
+  myToDoList.push(taskItem);
+  localStorage.setItem('myToDoList', JSON.stringify(myToDoList));
+});
+
+tasksList.addEventListener('click', (e) => {
+  const element = e.target;
+  const itemIndex = element.parentElement.querySelector('.idItem');
+  const itemStatus = element.parentElement.querySelector('.check-item');
+  statusCheck.update(itemIndex.innerHTML, itemStatus.checked);
+});
