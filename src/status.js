@@ -15,13 +15,17 @@ class StatusCheck {
     }
 
     update = (index, value) => {
+      const indexParam = parseInt(index);
       let newData = JSON.parse(localStorage.getItem('myToDoList'));
       if (newData === null) {
         newData = [];
         localStorage.setItem('myToDoList', JSON.stringify(newData));
       } else {
+        console.log('Checking new data....');
         newData.forEach((item) => {
-          if (item.index === index) {
+          console.log('index param -->' + typeof indexParam);
+          console.log('item.index -->' + typeof item.index);
+          if (item.index === indexParam) {
             item.completed = value;
           }
         });
