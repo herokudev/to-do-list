@@ -1,6 +1,6 @@
 const myToDoList = [];
 
-class appData {
+class AppData {
     get = () => {
       let newData = JSON.parse(localStorage.getItem('myToDoList'));
       if (newData === null) {
@@ -8,12 +8,12 @@ class appData {
         localStorage.setItem('myToDoList', JSON.stringify(newData));
       } else {
         newData.forEach((item) => {
-            myToDoList.push(item);
-         });
+          myToDoList.push(item);
+        });
       }
       return myToDoList;
     }
 }
- 
-const appdata = new appData();
+
+const appdata = new AppData();
 export { appdata as default };
