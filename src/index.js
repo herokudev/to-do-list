@@ -12,7 +12,7 @@ const addTaskToList = (myTask) => {
   row.classList.add('task-item');
   row.innerHTML = `
     <div class="desc-cont">
-    <input type="checkbox" class="check-item">
+    <input type="checkbox" id="check-${myTask.index}" class="check-item">
     <p class="task-desc" contentEditable="true">${myTask.description}</p>
     <p class="idItem">${myTask.index}</p>
     </div>
@@ -24,7 +24,13 @@ const addTaskToList = (myTask) => {
 
 const dispalyList = () => {
   myToDoList.forEach((item) => {
-    addTaskToList(item);
+    addTaskToList(item);    
+  });
+  const chkBoxList = document.querySelectorAll('.check-item');
+  chkBoxList.forEach((chkBox) => {
+    chkBox.addEventListener('change', () => {
+      statusCheck.update(chkBox.id, chkBox.checked)
+    });
   });
 };
 
@@ -40,11 +46,6 @@ addBtn.addEventListener('click', () => {
   taskItem.description = addItem.value;
   myToDoList.push(taskItem);
   localStorage.setItem('myToDoList', JSON.stringify(myToDoList));
+  addTaskToList(taskItem);
 });
 
-tasksList.addEventListener('click', (e) => {
-  const element = e.target;
-  const itemIndex = element.parentElement.querySelector('.idItem');
-  const itemStatus = element.parentElement.querySelector('.check-item');
-  statusCheck.update(itemIndex.innerHTML, itemStatus.checked);
-});

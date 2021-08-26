@@ -15,14 +15,19 @@ class StatusCheck {
     }
 
     update = (index, value) => {
-      const indexParam = parseInt(index, 10);
+      console.log('Enter --> statuscheck.update')
+      const indexParam = index.substring(6, index.length);
+      const indexNum =  parseInt(indexParam, 10);
+      console.log(indexNum);
+      console.log(typeof indexNum);
+      console.log(value);
       let newData = JSON.parse(localStorage.getItem('myToDoList'));
       if (newData === null) {
         newData = [];
         localStorage.setItem('myToDoList', JSON.stringify(newData));
       } else {
         newData.forEach((item) => {
-          if (item.index === indexParam) {
+          if (item.index === indexNum) {
             item.completed = value;
           }
         });
