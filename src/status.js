@@ -15,12 +15,8 @@ class StatusCheck {
     }
 
     update = (index, value) => {
-      console.log('Enter --> statuscheck.update')
       const indexParam = index.substring(6, index.length);
-      const indexNum =  parseInt(indexParam, 10);
-      console.log(indexNum);
-      console.log(typeof indexNum);
-      console.log(value);
+      const indexNum = parseInt(indexParam, 10);
       let newData = JSON.parse(localStorage.getItem('myToDoList'));
       if (newData === null) {
         newData = [];

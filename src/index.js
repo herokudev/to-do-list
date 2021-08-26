@@ -24,12 +24,12 @@ const addTaskToList = (myTask) => {
 
 const dispalyList = () => {
   myToDoList.forEach((item) => {
-    addTaskToList(item);    
+    addTaskToList(item);
   });
   const chkBoxList = document.querySelectorAll('.check-item');
   chkBoxList.forEach((chkBox) => {
     chkBox.addEventListener('change', () => {
-      statusCheck.update(chkBox.id, chkBox.checked)
+      statusCheck.update(chkBox.id, chkBox.checked);
     });
   });
 };
@@ -48,4 +48,3 @@ addBtn.addEventListener('click', () => {
   localStorage.setItem('myToDoList', JSON.stringify(myToDoList));
   addTaskToList(taskItem);
 });
-
