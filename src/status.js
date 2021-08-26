@@ -20,12 +20,10 @@ class StatusCheck {
         newData = [];
         localStorage.setItem('myToDoList', JSON.stringify(newData));
       } else {
-        let chkIndex = 0;
         newData.forEach((item) => {
-          if (item.index == index) {
+          if (item.index === index) {
             item.completed = value;
-          }              
-          chkIndex += 1;
+          }
         });
         localStorage.setItem('myToDoList', JSON.stringify(newData));
       }
