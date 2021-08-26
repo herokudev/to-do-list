@@ -27,6 +27,8 @@ main {
   height: 100%;
   width: 100%;
   border: none;
+  padding: 5px;
+  font-size: medium;
 }
 
 .add-btn {
@@ -68,11 +70,16 @@ main {
   border-bottom: gray 3px solid;
   display: flex;
   justify-content: space-between;
+  cursor: move;
 }
 
 .desc-cont {
   display: flex;
   align-items: baseline;
+}
+
+.idItem {
+  color: #fff;
 }
 
 .task-desc {

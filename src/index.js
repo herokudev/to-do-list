@@ -1,14 +1,20 @@
 import './style.css';
+import statusCheck from './status';
+import appdata from './appData';
 
 const tasksList = document.querySelector('#container');
+const addBtn = document.querySelector('.add-btn');
+const addItem = document.querySelector('.add-list');
+let myToDoList = [];
 
 const addTaskToList = (myTask) => {
   const row = document.createElement('li');
   row.classList.add('task-item');
   row.innerHTML = `
     <div class="desc-cont">
-    <input type="checkbox" class="check-item">
+    <input type="checkbox" id="check-${myTask.index}" class="check-item">
     <p class="task-desc" contentEditable="true">${myTask.description}</p>
+    <p class="idItem">${myTask.index}</p>
     </div>
     <i class="fa fa-ellipsis-v move-handle"></i>
     <i class="fa fa-trash delete"></i> 
@@ -17,17 +23,28 @@ const addTaskToList = (myTask) => {
 };
 
 const dispalyList = () => {
-  const myToDoList = [];
-  const taskItem1 = { index: 1, completed: false, description: 'Project milestone1' };
-  const taskItem2 = { index: 2, completed: false, description: 'Project milestone2' };
-  const taskItem3 = { index: 3, completed: false, description: 'Project milestone3' };
-  myToDoList.push(taskItem1);
-  myToDoList.push(taskItem2);
-  myToDoList.push(taskItem3);
-
   myToDoList.forEach((item) => {
     addTaskToList(item);
   });
+  const chkBoxList = document.querySelectorAll('.check-item');
+  chkBoxList.forEach((chkBox) => {
+    chkBox.addEventListener('change', () => {
+      statusCheck.update(chkBox.id, chkBox.checked);
+    });
+  });
 };
 
-dispalyList();
+document.addEventListener('DOMContentLoaded', () => {
+  myToDoList = appdata.get();
+  dispalyList();
+  statusCheck.setLocal();
+});
+
+addBtn.addEventListener('click', () => {
+  const taskItem = { index: 0, completed: false, description: '' };
+  taskItem.index = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+  taskItem.description = addItem.value;
+  myToDoList.push(taskItem);
+  localStorage.setItem('myToDoList', JSON.stringify(myToDoList));
+  addTaskToList(taskItem);
+});
