@@ -15,20 +15,30 @@ class StatusCheck {
     }
 
     update = (index, value) => {
-      const indexParam = index.substring(6, index.length);
-      const indexNum = parseInt(indexParam, 10);
+      let itemIndex = 1;
+      let matchIndex = 0;
+      const chkBoxList = document.querySelectorAll('.check-item');
+      if (chkBoxList.length > 0) {
+        chkBoxList.forEach((chkBox) => {
+          if (index === chkBox.id) {
+            matchIndex = itemIndex;
+          } else {
+            itemIndex += 1;
+          }
+        });
+      }
       let newData = JSON.parse(localStorage.getItem('myToDoList'));
       if (newData === null) {
         newData = [];
         localStorage.setItem('myToDoList', JSON.stringify(newData));
       } else {
         newData.forEach((item) => {
-          if (item.index === indexNum) {
+          if (item.index === matchIndex) {
             item.completed = value;
           }
         });
         localStorage.setItem('myToDoList', JSON.stringify(newData));
-      }
+      }  
     }
 }
 
