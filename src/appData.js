@@ -4,7 +4,7 @@ class AppData {
       if (newData === null) {
         newData = [];
         localStorage.setItem('myToDoList', JSON.stringify(newData));
-      } 
+      }
       return newData;
     }
 
@@ -20,11 +20,11 @@ class AppData {
           listIndex += 1;
         });
         localStorage.setItem('myToDoList', JSON.stringify(newData));
-      }      
+      }
     }
 
     editDescrip = (rowId, itemDesc) => {
-      rowId = 'check-' + rowId;
+      rowId = `check-${rowId}`;
       let itemIndex = 1;
       let matchIndex = 0;
       const chkBoxList = document.querySelectorAll('.check-item');
@@ -34,7 +34,7 @@ class AppData {
             matchIndex = itemIndex;
           } else {
             itemIndex += 1;
-          }          
+          }
         });
       }
       let newData = JSON.parse(localStorage.getItem('myToDoList'));
@@ -48,7 +48,7 @@ class AppData {
           }
         });
         localStorage.setItem('myToDoList', JSON.stringify(newData));
-      }       
+      }
     }
 
     deleteList = (value) => {
@@ -59,7 +59,7 @@ class AppData {
       } else {
         let listIndex = 0;
         newData.forEach((item) => {
-          if (item.description === value) {            
+          if (item.description === value) {
             newData.splice(listIndex, 1);
           }
           listIndex += 1;

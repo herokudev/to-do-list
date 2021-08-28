@@ -78,7 +78,7 @@ main {
 }
 
 .idItem {
-  color: green;
+  color: #fff;
 }
 
 .task-desc {
@@ -87,7 +87,7 @@ main {
 }
 
 .delete {
-  display: none;  
+  display: none;
 }
 
 .title {

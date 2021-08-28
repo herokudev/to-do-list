@@ -38,7 +38,7 @@ class StatusCheck {
           }
         });
         localStorage.setItem('myToDoList', JSON.stringify(newData));
-      } 
+      }
     }
 }
 

@@ -43,7 +43,6 @@ const dispalyList = () => {
       const rowId = elem.querySelector('.idItem');
       appdata.editDescrip(rowId.innerHTML, itemDesc.innerHTML);
     });
-    
   });
 };
 
@@ -54,12 +53,12 @@ const addPending = (pList) => {
   pList.forEach((item) => {
     const taskItem = { index: 0, completed: false, description: '' };
     taskItem.index = myToDoList.length + 1;
-    taskItem.description = item.description
+    taskItem.description = item.description;
     myToDoList.push(taskItem);
     addTaskToList(taskItem);
-  });   
+  });
   localStorage.setItem('myToDoList', JSON.stringify(myToDoList));
-}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   myToDoList = appdata.get();
@@ -80,13 +79,13 @@ addBtn.addEventListener('click', () => {
 tasksList.addEventListener('click', (e) => {
   const element = e.target;
   const listElement = element.outerHTML;
-  if (listElement.includes("task-item")) {
+  if (listElement.includes('task-item')) {
     e.preventDefault();
-  } else if (listElement.includes("fa-trash")) {
-      const item = element.parentElement;
-      const itemDesc = item.querySelector('.task-desc');
-      appdata.deleteList(itemDesc.innerHTML);  
-      item.remove();
+  } else if (listElement.includes('fa-trash')) {
+    const item = element.parentElement;
+    const itemDesc = item.querySelector('.task-desc');
+    appdata.deleteList(itemDesc.innerHTML);
+    item.remove();
   }
   appdata.updateIndex();
 });
@@ -95,10 +94,8 @@ clearBtn.addEventListener('click', () => {
   const mainList = document.querySelectorAll('.task-item');
   mainList.forEach((item) => {
     item.remove();
-  });  
-  let newData = appdata.get();
-  const itemsList = newData.filter((item) => {
-      return item.completed === false;
   });
+  const newData = appdata.get();
+  const itemsList = newData.filter((item) => item.completed === false);
   addPending(itemsList);
 });
