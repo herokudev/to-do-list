@@ -49,9 +49,8 @@ const dispalyList = () => {
 const addPending = (pList) => {
   const newData = [];
   localStorage.setItem('myToDoList', JSON.stringify(newData));
-  let myToDoList = [];
+  const myToDoList = [];
   pList.forEach((item) => {
-    console.log(item.description);
     const taskItem = { index: 0, completed: false, description: '' };
     taskItem.index = myToDoList.length + 1;
     taskItem.description = item.description;
@@ -96,7 +95,7 @@ clearBtn.addEventListener('click', () => {
   const mainList = document.querySelectorAll('.task-item');
   mainList.forEach((item) => {
     item.remove();
-  });  
+  });
   const newData = appdata.get();
   const itemsList = newData.filter((item) => item.completed === false);
   addPending(itemsList);
