@@ -7,8 +7,6 @@ const addBtn = document.querySelector('.add-btn');
 const addItem = document.querySelector('.add-list');
 const clearBtn = document.querySelector('.clear-btn');
 
-let myToDoList = [];
-
 const addTaskToList = (myTask) => {
   const chkBoxId = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
   const row = document.createElement('li');
@@ -27,6 +25,8 @@ const addTaskToList = (myTask) => {
 };
 
 const dispalyList = () => {
+  let myToDoList = [];
+  myToDoList = appdata.get();
   myToDoList.forEach((item) => {
     addTaskToList(item);
   });
@@ -49,8 +49,9 @@ const dispalyList = () => {
 const addPending = (pList) => {
   const newData = [];
   localStorage.setItem('myToDoList', JSON.stringify(newData));
-  myToDoList = [];
+  let myToDoList = [];
   pList.forEach((item) => {
+    console.log(item.description);
     const taskItem = { index: 0, completed: false, description: '' };
     taskItem.index = myToDoList.length + 1;
     taskItem.description = item.description;
@@ -61,12 +62,13 @@ const addPending = (pList) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  myToDoList = appdata.get();
   dispalyList();
   statusCheck.setLocal();
 });
 
 addBtn.addEventListener('click', () => {
+  let myToDoList = [];
+  myToDoList = appdata.get();
   const taskItem = { index: 0, completed: false, description: '' };
   taskItem.index = myToDoList.length + 1;
   taskItem.description = addItem.value;
@@ -94,7 +96,7 @@ clearBtn.addEventListener('click', () => {
   const mainList = document.querySelectorAll('.task-item');
   mainList.forEach((item) => {
     item.remove();
-  });
+  });  
   const newData = appdata.get();
   const itemsList = newData.filter((item) => item.completed === false);
   addPending(itemsList);
