@@ -5,6 +5,8 @@ import appdata from './appData';
 const tasksList = document.querySelector('#container');
 const addBtn = document.querySelector('.add-btn');
 const addItem = document.querySelector('.add-list');
+const clearBtn = document.querySelector('.clear-btn');
+
 let myToDoList = [];
 
 const addTaskToList = (myTask) => {
@@ -34,8 +36,30 @@ const dispalyList = () => {
       statusCheck.update(chkBox.id, chkBox.checked);
     });
   });
-
+  const itemsList = document.querySelectorAll('.task-desc');
+  itemsList.forEach((itemDesc) => {
+    const elem = itemDesc.parentElement;
+    itemDesc.addEventListener('keyup', () => {
+      const rowId = elem.querySelector('.idItem');
+      appdata.editDescrip(rowId.innerHTML, itemDesc.innerHTML);
+    });
+    
+  });
 };
+
+const addPending = (pList) => {
+  const newData = [];
+  localStorage.setItem('myToDoList', JSON.stringify(newData));
+  myToDoList = [];
+  pList.forEach((item) => {
+    const taskItem = { index: 0, completed: false, description: '' };
+    taskItem.index = myToDoList.length + 1;
+    taskItem.description = item.description
+    myToDoList.push(taskItem);
+    addTaskToList(taskItem);
+  });   
+  localStorage.setItem('myToDoList', JSON.stringify(myToDoList));
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   myToDoList = appdata.get();
@@ -58,12 +82,6 @@ tasksList.addEventListener('click', (e) => {
   const listElement = element.outerHTML;
   if (listElement.includes("task-item")) {
     e.preventDefault();
-  } else if (listElement.includes("check-item")) {
-    console.log('check box item click');
-
-  } else if (listElement.includes("task-desc")) {
-      console.log('description item click');
-
   } else if (listElement.includes("fa-trash")) {
       const item = element.parentElement;
       const itemDesc = item.querySelector('.task-desc');
@@ -71,4 +89,16 @@ tasksList.addEventListener('click', (e) => {
       item.remove();
   }
   appdata.updateIndex();
+});
+
+clearBtn.addEventListener('click', () => {
+  const mainList = document.querySelectorAll('.task-item');
+  mainList.forEach((item) => {
+    item.remove();
+  });  
+  let newData = appdata.get();
+  const itemsList = newData.filter((item) => {
+      return item.completed === false;
+  });
+  addPending(itemsList);
 });
