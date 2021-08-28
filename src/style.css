@@ -66,11 +66,10 @@ main {
 
 .task-item {
   width: 99%;
-  padding: 15px 0 15px 0;
+  padding: 15px;
   border-bottom: gray 3px solid;
   display: flex;
   justify-content: space-between;
-  cursor: move;
 }
 
 .desc-cont {
@@ -84,6 +83,7 @@ main {
 
 .task-desc {
   margin-left: 15px;
+  padding-right: 25px;
 }
 
 .delete {
